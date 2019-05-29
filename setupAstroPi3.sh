@@ -46,23 +46,6 @@ then
     exit
 fi
 
-# This would update the Raspberry Pi kernel.  For now it is disabled because there is debate about whether to do it or not.  To enable it, take away the # sign.
-#display "Updating Kernel"
-#sudo rpi-update 
-
-# Right now when Firefox gets updated on Raspberry Pi, it breaks it. 
-# This will set Firefox to a known working version of Firefox and prevent any update.
-display "Currently (11/2017) there is an issue with Ubuntu-Mate on Raspberry Pi.  Updating Firefox Breaks it."
-read -p "Do you want to set Firefox to a known working version and prevent a Firefox update (y/n)? " preventUpdateFirefox
-if [ "$preventUpdateFirefox" == "y" ]
-then
-	wget http://ports.ubuntu.com/pool/main/f/firefox/firefox_52.0.2+build1-0ubuntu0.12.04.1_armhf.deb
-	sudo apt-get -y purge firefox
-	sudo dpkg -i firefox_52.0.2+build1-0ubuntu0.12.04.1_armhf.deb
-	sudo apt-mark hold firefox
-	rm firefox_52.0.2+build1-0ubuntu0.12.04.1_armhf.deb
-fi
-
 # Updates the Raspberry Pi to the latest packages.
 display "Updating installed packages"
 sudo apt-get update
@@ -336,13 +319,6 @@ sudo smbpasswd -a $SUDO_USER
 
 #########################################################
 #############  Very Important Configuration Items
-
-# This will create a swap file for an increased 2 GB of artificial RAM.  This is not needed on all systems, since different cameras download different size images, but if you are using a DSLR, it definitely is.
-# This method is disabled in favor of the zram method below. If you prefer this method, you can re-enable it by taking out the #'s
-#display "Creating SWAP Memory"
-#wget https://raw.githubusercontent.com/Cretezy/Swap/master/swap.sh -O swap
-#sh swap 2G
-#rm swap
 
 # This will create zram, basically a swap file saved in RAM. It will not read or write to the SD card, but instead, writes to compressed RAM.  
 # This is not needed on all systems, since different cameras download different size images, and different SBC's have different RAM capacities but 
