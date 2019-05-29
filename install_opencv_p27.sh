@@ -12,6 +12,7 @@ function display
 display "Cloning OpenCV repository"
 
 cvVersion="2.4.13.7"
+cd ~
 git clone https://github.com/opencv/opencv.git
 cd opencv
 git checkout $cvVersion
