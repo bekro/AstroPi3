@@ -20,9 +20,10 @@ fi
 
 display "Download and unzip the QHYCCD SDK"
 
-cd ~
-wget https://www.qhyccd.com/uploadfile/2018/1222/20181222054316365.zip
-unzip 20181222054316365.zip -d .
+cd ~/AstroPi3
+unzip installer_sdk.zip -d ~/
+# wget https://www.qhyccd.com/uploadfile/2018/1222/20181222054316365.zip
+# unzip 20181222054316365.zip -d .
 
 display "Download and unzip the software"
 
