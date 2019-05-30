@@ -18,6 +18,12 @@ then
 	exit
 fi
 
+display "Download and unzip the QHYCCD SDK"
+
+cd ~
+wget https://www.qhyccd.com/uploadfile/2018/1222/20181222054316365.zip
+unzip 20181222054634222.zip -d .
+
 display "Download and unzip the software"
 
 cd ~
@@ -32,10 +38,10 @@ unzip 20181222054634222.zip -d .
 #     exit
 # fi
 
-display "Installing the PoleMaster_Qt-for-RPI-Ubuntu-1 package"
+# display "Installing the PoleMaster_Qt-for-RPI-Ubuntu-1 package"
+# cd ~
+# sudo dpkg -i PoleMaster_Qt-for-RPI-Ubuntu-1.3.5.0.deb
 
-sudo dpkg -i PoleMaster_Qt-for-RPI-Ubuntu-1.3.5.0.deb
-
-display "Checking all the dependencies"
-cd /usr/bin/PoleMaster
-ldd PoleMaster
+# display "Checking all the dependencies"
+# cd /usr/bin/PoleMaster
+# ldd PoleMaster
